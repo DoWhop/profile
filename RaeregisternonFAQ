@@ -1,0 +1,64 @@
+<?php
+
+//incudes
+require_once("common.php");
+require_once("page_common.php");
+
+//print header
+printHeader("DoWhop | login", ["login.js", "register.js"]);
+
+//print page
+?>
+
+<script type="text/javascript">
+	function registerSuccess() {
+		window.location = 'editprofile.php';
+	}
+	function loginSuccess() {
+		window.location = 'profile.php';
+	}
+</script>
+
+
+<div id="pagebody">
+	<div id="register">
+		<h3>Sign Up</h3>
+		<div id="register_fields">
+			<div id="join_response">
+			</div>
+			<br>
+				<label for="join_email">Your email address:</label>
+				<input type="text" id="join_email" placeholder="signmeup@dowhop.com">
+			<br>
+				<label for="join_password">Choose your password:</label>
+				<input type="password" id="join_password" placeholder="Password">
+			<br>
+				<label for="join_password">Confirm your password:</label>
+				<input type="password" id="join_password2" placeholder="Password">
+			<br>
+				<button type="button" id="join_button" onclick="tryToRegister('join_email', 'join_password', 'join_password2', 'join_response', registerSuccess);">Sign Me Up!</button>
+		</div>
+	</div>
+	<div id="login">
+		<p></p><i>Already have an account? Sign in here:</i>
+		<div id="login_fields">
+			<div id="login_response">
+			</div>
+			<br>
+				<input type="text" id="login_email" placeholder="Email">
+			<br>
+				<input type="password" id="login_password" placeholder="Password">
+			<br>
+				<button type="button" id="login_button" onclick="tryToLogin('login_email', 'login_password', 'login_response', loginSuccess);">Sign In</button>
+		</div>
+	</div>
+</div>
+
+
+
+<?php
+
+//print footer
+printFooter();
+
+?>
